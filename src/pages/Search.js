@@ -2,14 +2,13 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 
 export function Search() {
-
     const [searchitem, setsearchitem] = useState('')
     const [templist, setTemplist] = useState([])
-    const [tempcoin, settempcoin] = useState('')
     const SEARCH_URI = `https://api.coingecko.com/api/v3/search?query=${searchitem}`
 
     function inputhandler(ev) {
-        setsearchitem(ev.target.value)
+        const val = ev.target.value;
+        setsearchitem(val)
     }
 
     function searchcoin(e) {
@@ -19,12 +18,19 @@ export function Search() {
         )
     }
 
-    console.log(templist)
+    console.log(`list : ${templist}`)
+    console.log(`searchtext : ${searchitem}`)
+
+    function clearfields() {
+        setsearchitem('')
+        setTemplist([])
+    }
+
     return (
         <div>
             <div className='flex flex-col items-center'>
                 <form onSubmit={searchcoin}>
-                    <input className='mr-4 p-3 rounded shadow shadow-black w-[400px] bg-gray-200'
+                    <input value={searchitem} className='mr-4 p-3 rounded shadow shadow-black w-[400px] bg-gray-200'
                            onChange={inputhandler}/>
                     <button type='submit' className='bg-gray-50 w-20 p-3 border border-blue-200 mt-5  shadow shadow-black
                  rounded-2xl hover:bg-gray-600 hover:text-gray-300 transition  '>search
@@ -42,19 +48,24 @@ export function Search() {
                             <span className='italic font-bold'>{coin.symbol}</span>
                         </div>
                         <div className='flex flex-col pl-4'>
-                            <div className='group-hover:underline'>{coin.name}</div>
-                            <div className='text-red-300'>Rank:{coin.market_cap_rank}</div>
-                            <Link to={`/coin/${templist[key].api_symbol}`}>More info</Link>
+                            <div className='font-bold'>{coin.name}</div>
+                            <div
+                                className='text-red-300'>Rank: {coin.market_cap_rank== null ? ' N/A' : coin.market_cap_rank}</div>
+                            <Link className='group-hover:underline' to={`/coin/${templist[key].api_symbol}`}>More
+                                info</Link>
+                            {console.log(coin)}
                         </div>
                     </div>
                 })}
 
             </div>
             <div className='w-screen flex justify-center'>
-            {templist.length > 0 && (
-                <button className='bg-gray-50 w-32 p-3 border border-blue-200 mt-5  shadow shadow-black
-                 rounded-2xl hover:bg-gray-600 hover:text-gray-300 transition ' onClick={()=>setTemplist([])}>clear results</button>
-            )}
+                {templist.length > 0 && (
+                    <button className='bg-gray-50 w-32 p-3 border border-blue-200 mt-5  shadow shadow-black
+                 rounded-2xl hover:bg-gray-600 hover:text-gray-300 transition '
+                            onClick={clearfields}>clear
+                        results</button>
+                )}
             </div>
         </div>
     );
