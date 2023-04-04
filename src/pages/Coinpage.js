@@ -8,6 +8,7 @@ export function Coinpage() {
     const COIN_URL = `https://api.coingecko.com/api/v3/coins/${coin}`
     const [showCoin, setShowCoin] = useState({})
 
+
     useEffect(() => {
         fetch(COIN_URL).then(r => r.json()).then(json =>
             setShowCoin(json)
