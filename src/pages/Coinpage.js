@@ -1,4 +1,4 @@
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {Navbar} from "../Components/Navbar";
 import Select from "react-select";
@@ -39,12 +39,12 @@ export function Coinpage() {
                     <div className='w-[90vw] flex justify-center sm:justify-start'>
                         <button className={'text-white bg-p-gray p-3 rounded' +
                             ' ring ring-neutral-600 focus:ring-red-600' +
-                            ' self-center '}>Go back to search results
+                    ' self-center '}><Link to={`/`}>Home</Link>
                         </button>
                     </div>
                     <div className='w-[90vw] h-auto my-5 flex flex-col items-center sm:flex-row'>
                         <div className={'flex flex-col items-center justify-center  w-1/4'}>
-                            <img src={showCoin.image?.large} className='w-64 mb-3'/>
+                            <img src={showCoin.image?.large} alt={showCoin.id} className='w-64 mb-3'/>
                         </div>
                         <div className={'bg-p-bar-gray w-3/4'}>
 
@@ -93,16 +93,8 @@ export function Coinpage() {
 
                         </div>
                     </div>
-                    <div className='w-[90vw] h-80 bg-p-orange my-5'>
-                        sadasads Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid aperiam
-                        autem dolorum eveniet excepturi facere fugit hic illo in inventore ipsa mollitia nisi,
-                        perferendis perspiciatis quibusdam quos soluta ut voluptates voluptatibus? Ipsa repellendus
-                        totam voluptatem? Aperiam illum labore recusandae reiciendis reprehenderit tenetur totam
-                        veritatis! Adipisci atque commodi delectus dignissimos distinctio dolor dolore ea eos error
-                        fuga, id illo impedit inventore iste molestiae molestias neque non nulla numquam omnis possimus
-                        quas qui quia quidem rem repellendus reprehenderit saepe sequi tenetur ullam. Accusantium
-                        blanditiis corporis, dignissimos, ea eveniet ex fuga illo inventore itaque possimus quibusdam,
-                        voluptatibus. Necessitatibus ratione sapiente soluta voluptatem.
+                    <div className='w-[90vw] h-20 bg-p-orange my-5 p-5 text-center'>
+                       I really don't know what to add more but overall looks and works just fine
                     </div>
                 </div>
             </div>

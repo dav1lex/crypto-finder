@@ -108,14 +108,14 @@ export function Search() {
                     //loading
                     notfound ? showNotfound() :
                         //if not found show error
-                        //if found iterate 10 coins ;
-                        templist.slice(0, 10).map((coin, key) => {
+                        //if found show only 10 coins ;
+                        templist.slice(0,10).map((coin, key) => {
                             return <div key={key} className='bg-neutral-800  w-56 h-24 m-5 pl-2
                              flex items-center rounded shadow transition ease-in-out cursor-pointer
                               hover:-translate-y-1 hover:scale-110 group'>
 
                                 <div className='flex flex-col items-center '>
-                                    <img src={coin.large} width={50}/>
+                                    <img src={coin.large} alt={coin.id} width={50}/>
                                     <span className='italic font-bold text-p-orange'>{coin.symbol}</span>
                                 </div>
                                 <div className='flex flex-col pl-4 '>
