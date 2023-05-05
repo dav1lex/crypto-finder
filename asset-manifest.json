@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/crypto-finder/static/css/main.b072fd49.css",
+    "main.js": "/crypto-finder/static/js/main.28474991.js",
+    "index.html": "/crypto-finder/index.html",
+    "main.b072fd49.css.map": "/crypto-finder/static/css/main.b072fd49.css.map",
+    "main.28474991.js.map": "/crypto-finder/static/js/main.28474991.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b072fd49.css",
+    "static/js/main.28474991.js"
+  ]
+}
